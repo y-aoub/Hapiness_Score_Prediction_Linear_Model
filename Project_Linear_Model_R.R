@@ -1,13 +1,12 @@
 install.packages("car") 
 install.packages("lmtest")
 install.packages("olsrr")
-install.packages("MASS")
 install.packages("caret")
 install.packages("glmnet")
 
 #Import the data frame (csv format) ------------------------------------------------------
 df <- read.csv(file = '/home/cytech/Project_LM/Hapiness_Report_Data_2019.csv')
-df <- df[,3:7] #removing the columns "Rank" and "Country" from the original data frame
+df <- df[,3:9] #removing the columns "Rank" and "Country" from the original data frame
 head(df)
 
 #Visualize df
