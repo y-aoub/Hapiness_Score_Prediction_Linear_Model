@@ -140,14 +140,14 @@ new_model <- lm(formula = Score ~ GDP_per_capita + Social_support +
 summary(new_model) #we see that the whole model is more significant (high F-statistic = 105) than before
                    #as well as the variables of the model (small p-values)
 
-#Cross-validation (repeated 10 times) -----------------------------------------------------
+#Cross-validation ---------------------------------------------------------------------
 
 library(caret)
 
 set.seed(123) 
 
-train.control.k.fold <- trainControl(method = "repeatedcv", number = 10, repeats = 10) # Define training control: 10-Fold repeated 10 times
-train.control.loocv <- trainControl(method = "LOOCV")
+train.control.k.fold <- trainControl(method = "repeatedcv", number = 10, repeats = 10) #define training control: 10-Fold repeated 10 times
+train.control.loocv <- trainControl(method = "LOOCV") #define training control: LOOCV
 
 #LOOCV
 initial_model_loocv <- train(Score ~ GDP_per_capita + Social_support +
@@ -162,6 +162,8 @@ new_model_loocv <- train(Score ~ GDP_per_capita + Social_support +
 
 initial_model_loocv #RMSE_initial_model (prediction error)
 new_model_loocv #RMSE_new_model (prediction error)
+
+#K-Fold (repeated 10 times) 
 
 initial_model_10_fold <- train(Score ~ GDP_per_capita + Social_support +
                                Healthy_life_expectancy + Freedom_to_make_life_choices + Generosity +
